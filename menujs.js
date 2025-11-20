@@ -57,8 +57,8 @@ class CommonComponents {
                     ]
                 },
                 { 
-                    text: 'IQAC', 
-                    href: 'iqac.php', 
+                    text: 'Social Services', 
+                    href: 'NSS.html', 
                     icon: 'fas fa-award'
                 },
                 { 

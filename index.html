@@ -22,6 +22,58 @@
     opacity: 0.6;
     cursor: not-allowed;
 }
+        .enquiryModalUnique {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modalBoxUnique {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.closeBtnUnique {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.enquiryBtnUnique {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--burgundy);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.enquiryBtnUnique:hover {
+    background: var(--navy);
+    transform: translateY(-2px);
+}
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
@@ -69,37 +121,36 @@
         </section>
 
         <!-- Floating Enquiry Button -->
-        <div class="enquiryBtnUnique" onclick="openEnquiry()">
-            Admission Enquiry
-        </div>
+<!-- Floating Enquiry Button -->
+<div class="enquiryBtnUnique" onclick="openEnquiry()">
+    Admission Enquiry
+</div>
 
-        <!-- Popup Form -->
-        <div id="enquiryForm" class="enquiryModalUnique">
-            <div class="modalBoxUnique">
-                <span class="closeBtnUnique" onclick="closeEnquiry()">&times;</span>
-                <h2 class="h2admiss">Admission Enquiry</h2>
+<!-- Popup Form -->
+<div id="enquiryForm" class="enquiryModalUnique">
+    <div class="modalBoxUnique">
+        <span class="closeBtnUnique" onclick="closeEnquiry()">&times;</span>
+        <h2 class="h2admiss">Admission Enquiry</h2>
 
-                <form id="enquiryFormData" onsubmit="submitEnquiry(event)">
-
-    
-    <div id="errorMessage" class="error-message" style="display:none;"></div>
-    
-    <label>Name *</label>
-    <input type="text" name="name" placeholder="Enter your name" required>
-    
-    <label>Email *</label>
-    <input type="email" name="email" placeholder="Enter your email" required>
-    
-    <label>Phone No. *</label>
-    <input type="text" name="phone" placeholder="Enter your phone number" required>
-    
-    <label>Message</label>
-    <textarea name="message" rows="4" placeholder="Write your message..."></textarea>
-    
-    <button type="submit" class="submitBtnUnique">Submit</button>
-</form></div>
-        </div>
-
+        <form id="enquiryFormData" onsubmit="submitEnquiry(event)">
+            <div id="errorMessage" class="error-message" style="display:none;"></div>
+            
+            <label>Name *</label>
+            <input type="text" name="name" placeholder="Enter your name" required>
+            
+            <label>Email *</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            
+            <label>Phone No. *</label>
+            <input type="text" name="phone" placeholder="Enter your phone number" required>
+            
+            <label>Message</label>
+            <textarea name="message" rows="4" placeholder="Write your message..."></textarea>
+            
+            <button type="submit" class="submitBtnUnique">Submit</button>
+        </form>
+    </div>
+</div>
         <!-- Stats Section -->
         <section class="stats-section">
             <div class="section-title">
@@ -647,22 +698,38 @@ Vellore-632 102, Tamil Nadu, India</p>
     }
     
     // Enquiry form functions
-    function openEnquiry() {
-        document.getElementById("enquiryForm").style.display = "flex";
-    }
+    // Enquiry form functions - CORRECTED
+function openEnquiry() {
+    console.log("Opening enquiry form"); // Debug line
+    document.getElementById("enquiryForm").style.display = "flex";
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
+}
 
-    function closeEnquiry() {
-        document.getElementById("enquiryForm").style.display = "none";
-        // Reset form and button state when closing
-        const submitBtn = document.querySelector('.submitBtnUnique');
+function closeEnquiry() {
+    console.log("Closing enquiry form"); // Debug line
+    document.getElementById("enquiryForm").style.display = "none";
+    document.body.style.overflow = "auto"; // Restore scrolling
+    
+    // Reset form and button state when closing
+    const submitBtn = document.querySelector('.submitBtnUnique');
+    if (submitBtn) {
         submitBtn.textContent = 'Submit';
         submitBtn.disabled = false;
-        submitBtn.onclick = null; // Remove any custom onclick handler
-        
-        // Hide any error messages
-        const errorDiv = document.getElementById('errorMessage');
+        submitBtn.onclick = null;
+    }
+    
+    // Hide any error messages
+    const errorDiv = document.getElementById('errorMessage');
+    if (errorDiv) {
         errorDiv.style.display = 'none';
     }
+    
+    // Reset the form
+    const form = document.getElementById('enquiryFormData');
+    if (form) {
+        form.reset();
+    }
+}
 
     // Animate stats counter
     function animateStats() {

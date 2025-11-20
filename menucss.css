@@ -1,3 +1,11 @@
+
+
+.department-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 /* Disable Desktop Menu Everywhere */
 .desktop-nav {
     display: none !important;

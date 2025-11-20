@@ -194,14 +194,14 @@ Vellore-632 102, Tamil Nadu, India</p>
                     <div class="footer-section">
                         <h3>Academics</h3>
                         <a href="cse.html">CSE Department</a>
-                        <a href="ece.html">ECE Department</a>
+                        <a href="gtec_ece.html">ECE Department</a>
                <a href="ece.html">EEE Department</a>
-                        <a href="ece.html">AI&DS Department</a>
+                        <a href="gtec_ece.html">AI&DS Department</a>
                         
                         <a href="ece.html">CS&BS Department</a>
                         
-                        <a href="it.html">IT Department</a>
-                        <a href="mech.html">Mechanical Department</a>
+                        <a href="IT.html">IT Department</a>
+                        <a href="MECH.html">Mechanical Department</a>
                         <a href="civil.html">Civil Engineering</a>
                         <a href="library.html">Library</a>
                     </div>

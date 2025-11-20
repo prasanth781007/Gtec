@@ -207,8 +207,10 @@ Vellore-632 102, Tamil Nadu, India</p>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2025 GTEC. All rights reserved. | Designed by GTEC IT Solutions</p>
-                </div>
+                        <pre>
+        &copy; 2025 GTEC. All rights reserved.
+       <a href="D&P.html" class="department-card"> <img src="IMG-20251120-WA0004.jpg" alt="Designer Logo" style="height:20px; vertical-align:middle; margin:0 5px;">Designed by D & P</a>
+    </pre> </div>
             </div>
             
             <a href="#" class="back-to-top" id="backToTop">
